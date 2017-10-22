@@ -50,18 +50,12 @@ def main():
     tweet_file = open(sys.argv[1])
     
     tweets = getTweets(tweet_file)
-    #weighted_terms = calculate_freqs(tweets)
+    weighted_terms = calculate_freqs(tweets)
     if debug:
         printTweets(tweets)
     
-    #for key, value in weighted_terms.iteritems():
-    #    print key + ' ' + str(float(value))  
-      
-    
-    for tweet in tweets[0:30]:
-        print tweet
-        #for key, value in tweet.iteritems():
-        #    print key + u' ' + str(value)  
+    for key, value in weighted_terms.iteritems():
+        print key + ' ' + str(float(value))  
         
 
 if __name__ == '__main__':

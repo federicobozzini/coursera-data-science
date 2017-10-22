@@ -1,13 +1,5 @@
 import sys
 import json
-
-
-def hw():
-    print 'Hello, world!'
-    
-
-def lines(fp):
-    print str(len(fp.readlines()))
     
 def getTweets(fp):
     tweets = []
@@ -38,16 +30,16 @@ def getScores(fp):
     
     
 def printScores(scores):
-    print scores.items()
-    #for term,score in scores.iteritems():
-    #    print term + '-' + str(score) # Print every (term, score) pair in the dictionary
+    for term,score in scores.iteritems():
+        print term + ' ' + str(score)
     
 def printTweets(tweets):
-    print tweets[0]
-    
-def generateOutput(tweet_scores):
-    for tweet_score in tweet_scores:
-        print tweet_score
+    for tweets in tweets:
+        print tweets
+
+def printTweetScores(tweet_scores):
+    for scores in tweet_scores:
+        print scores
 
 debug = False
     
@@ -59,13 +51,10 @@ def main():
     tweets = getTweets(tweet_file)
     tweet_scores = rateTweets(tweets,scores)
     if debug:
-        lines(sent_file)
-        lines(tweet_file)
         printScores(scores)
         printTweets(tweets)
-        print tweet_scores
         
-    generateOutput(tweet_scores)
+    printTweetScores(tweet_scores)
 
 if __name__ == '__main__':
     main()

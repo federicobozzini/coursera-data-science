@@ -13,7 +13,7 @@ def getTweets(fp):
     tweets = []
     for line in fp:
         tweet = json.loads(line)
-        if 'text' in tweet and tweet['lang'] == u'en':
+        if 'text' in tweet and tweet['user']['lang'] == u'en':
             tweets.append(tweet)
     return tweets
     
