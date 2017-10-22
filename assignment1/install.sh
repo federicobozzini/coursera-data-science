@@ -1,0 +1,1 @@
+pip install oauth2 && pip freeze > requirements.txt
